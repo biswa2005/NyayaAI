@@ -2,7 +2,7 @@
 // IMPORT USER MODEL
 // ======================================
 
-const User = require("../models/User");
+const User = require("../models/User.model");
 
 // ======================================
 // IMPORT BCRYPT

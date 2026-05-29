@@ -2,21 +2,18 @@ const express = require("express");
 
 const cors = require("cors");
 
-const dotenv = require("dotenv");
-
 const cookieParser = require("cookie-parser");
 
 const session = require("express-session");
 
 const passport = require("passport");
 
-dotenv.config();
-
 require("./config/passport");
 
 const app = express();
 
 const authRoutes = require("./routes/authRoutes");
+const reminderRoutes = require("./routes/reminderRoutes");
 
 app.use(cors());
 
@@ -39,6 +36,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use("/api/auth", authRoutes);
+app.use("/api/reminders", reminderRoutes);
 
 app.get("/", (req, res) => {
   res.send("API Running");
